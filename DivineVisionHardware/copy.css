@@ -1,0 +1,460 @@
+/* Tailwind CSS and custom styles for Divine Vision Hardware */
+
+/* Import Tailwind CSS */
+@import url("https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css");
+
+/* Custom color variables */
+:root {
+  --primary-blue: #02248c;
+  --secondary-blue: #2f4a9c;
+  --dark-blue: #000a26;
+  --accent-blue: #1e3a8a;
+}
+
+/* Custom styles */
+.bg-gradient-to-b {
+  background-image: linear-gradient(
+    to bottom,
+    var(--primary-blue),
+    var(--dark-blue)
+  );
+}
+
+.text-\[\#02248C\] {
+  color: var(--primary-blue);
+}
+
+.text-\[\#2F4A9C\] {
+  color: var(--secondary-blue);
+}
+
+.text-\[\#1e3a8a\] {
+  color: var(--accent-blue);
+}
+
+.border-\[\#2F4A9C\] {
+  border-color: var(--secondary-blue);
+}
+
+.ring-\[\#2F4A9C\] {
+  --tw-ring-color: var(--secondary-blue);
+}
+
+.ring-\[\#1e3a8a\] {
+  --tw-ring-color: var(--accent-blue);
+}
+
+/* Hover effects */
+.hover\:text-\[\#1e3a8a\]:hover {
+  color: var(--accent-blue);
+}
+
+.hover\:border-\[\#2F4A9C\]:hover {
+  border-color: var(--secondary-blue);
+}
+
+/* Focus effects */
+.focus\:ring-\[\#2F4A9C\]:focus {
+  --tw-ring-color: var(--secondary-blue);
+}
+
+.focus\:ring-\[\#1e3a8a\]:focus {
+  --tw-ring-color: var(--accent-blue);
+}
+
+/* Custom animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Product card animations */
+.product-card {
+  transition: all 0.3s ease;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Category button animations */
+.category-btn {
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.category-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s;
+}
+
+.category-btn:hover::before {
+  left: 100%;
+}
+
+/* WhatsApp button pulse animation */
+.whatsapp-btn {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(34, 197, 94, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+  }
+}
+
+/* Smooth transitions for all interactive elements */
+a,
+button {
+  transition: all 0.3s ease;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--secondary-blue);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-blue);
+}
+
+/* Mobile menu enhancements */
+.mobile-menu {
+  transform: translateY(-100%);
+  transition: transform 0.3s ease;
+}
+
+.mobile-menu.show {
+  transform: translateY(0);
+}
+
+/* Product image hover effects */
+.product-image {
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-image {
+  transform: scale(1.05);
+}
+
+/* Price tag styling */
+.price-tag {
+  background: linear-gradient(45deg, #10b981, #059669);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+/* Category badge styling */
+.category-badge {
+  background: rgba(59, 130, 246, 0.1);
+  color: var(--secondary-blue);
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+/* Contact section enhancements */
+.contact-card {
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.contact-card:hover {
+  border-color: var(--secondary-blue);
+  transform: translateY(-5px);
+}
+
+/* Footer link hover effects */
+.footer-link {
+  position: relative;
+}
+
+.footer-link::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: var(--secondary-blue);
+  transition: width 0.3s ease;
+}
+
+.footer-link:hover::after {
+  width: 100%;
+}
+
+/* Responsive typography */
+@media (max-width: 640px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+}
+
+/* Loading skeleton for products */
+.skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Enhanced button styles */
+.btn-primary {
+  background: linear-gradient(
+    45deg,
+    var(--secondary-blue),
+    var(--primary-blue)
+  );
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+}
+
+.btn-secondary {
+  background: white;
+  border: 2px solid var(--secondary-blue);
+  color: var(--secondary-blue);
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background: var(--secondary-blue);
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Card hover effects */
+.info-card {
+  transition: all 0.3s ease;
+  border: 1px solid #e5e7eb;
+}
+
+.info-card:hover {
+  border-color: var(--secondary-blue);
+  box-shadow: 0 10px 25px rgba(59, 130, 246, 0.1);
+}
+
+/* Navigation active state */
+.nav-link.active {
+  color: var(--secondary-blue);
+  position: relative;
+}
+
+.nav-link.active::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--secondary-blue);
+}
+
+/* Search bar styling */
+.search-bar {
+  background: white;
+  border: 2px solid #e5e7eb;
+  border-radius: 25px;
+  padding: 12px 20px;
+  transition: all 0.3s ease;
+}
+
+.search-bar:focus {
+  border-color: var(--secondary-blue);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  outline: none;
+}
+
+/* Tooltip styling */
+.tooltip {
+  position: relative;
+}
+
+.tooltip::before {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1f2937;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.tooltip::after {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: #1f2937;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.tooltip:hover::before,
+.tooltip:hover::after {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Product grid responsive adjustments */
+@media (max-width: 768px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Loading animation for products */
+.loading {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #fff;
+  animation: spin 1s ease-in-out infinite;
+}
+
+/* Loading spinner for product display */
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #e5e7eb;
+  border-top: 4px solid var(--secondary-blue);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus styles for accessibility */
+button:focus,
+input:focus,
+a:focus {
+  outline: 2px solid var(--secondary-blue);
+  outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .bg-gradient-to-b {
+    background: var(--primary-blue);
+  }
+
+  .text-\[\#2F4A9C\] {
+    color: var(--primary-blue);
+  }
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+}
